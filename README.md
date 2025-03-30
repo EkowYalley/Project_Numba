@@ -42,6 +42,13 @@ Numba is extensively used in:
 
 - Low-overhead Python integration
 
+# installation step
+- module load Conda/3
+
+- pip install numba
+
+- python -c "import numba; print(numba.__version__)" (to verify instalation)
+
 
 
 ## Usage Example
@@ -51,8 +58,6 @@ Numba is extensively used in:
 from numba import jit
 
 import numpy as np
-
-
 
 @jit(nopython=True)
 
@@ -71,3 +76,20 @@ def monte_carlo_pi(nsamples):
             acc += 1
 
     return 4.0 * acc / nsamples
+
+print(monte_carlo_pi(1_000_000))
+
+# How to run code
+
+- cat slurm-52795726.out
+
+(if needed)
+- chmod +x run_numba.sb
+- sbatch run_numba.sb
+- cat <created slurm>
+
+#Refrences 
+
+https://numba.readthedocs.io/en/stable/user/installing.html
+
+https://numba.pydata.org/numba-examples/examples/monte_carlo/index.html

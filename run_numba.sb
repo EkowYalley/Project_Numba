@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#SBATCH --job-name=numba_test
+
+#SBATCH --nodes=1
+
+#SBATCH --ntasks-per-node=1
+
+#SBATCH --time=00:05:00
+
+#SBATCH --mem=2G
+
+#Get Numba
+pip install numba
+
+#Run code with python
+python monte_carlo_pi.py
